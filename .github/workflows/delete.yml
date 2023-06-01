@@ -18,5 +18,5 @@ jobs:
           CACHE_KEY: ${{ inputs.cache_key }}
       - uses: ./
         with:
-          CACHE_KEY: ${{ inputs.cache_key }}
+          cache_key: ${{ inputs.cache_key }}
 
