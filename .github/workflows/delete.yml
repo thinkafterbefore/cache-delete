@@ -11,7 +11,12 @@ jobs:
   log-the-inputs:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - run: |
           echo "Log level: $CACHE_KEY"
         env:
           CACHE_KEY: ${{ inputs.cache_key }}
+      - uses: ./
+        with:
+          CACHE_KEY: ${{ inputs.cache_key }}
+
