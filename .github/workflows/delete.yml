@@ -1,3 +1,5 @@
+name: Delete BuildJet Cache
+
 on:
   workflow_dispatch:
     inputs:
