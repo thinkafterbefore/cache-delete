@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       cache_key:
-        description: 'Cache Key to Delete'
+        description: 'BuildJet Cache Key to Delete'
         required: true
         type: string
 
@@ -11,12 +11,8 @@ jobs:
   log-the-inputs:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - run: |
-          echo "Log level: $CACHE_KEY"
-        env:
-          CACHE_KEY: ${{ inputs.cache_key }}
-      - uses: ./
+      - uses: ./ # Uses an action in the root directory
         with:
           cache_key: ${{ inputs.cache_key }}
-
+        env:
+          BUILDJET_CACHE_URL: https://cache-api-staging.buildjet.com/
